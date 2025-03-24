@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <title>Loading bar prototype</title>
+
+    <body style="display: flex; flex-direction: row;">
+        < class="w3-container">
+            <!-- Start of container below -->
+            <div style="height: 500px; width: 500px; background-color: yellow; margin: 5px;">
+                <h2>Dynamic Progress Bar</h2>
+
+                <div
+                    class="w3-light-grey"
+                    style="height: 24px; width: 50%; background-color: lightgrey"
+                >
+                    <div
+                        id="playerBar"
+                        class="w3-green"
+                        style="height: 24px; width: 0; background-color: green"
+                    ></div>
+                </div>
+                <br />
+
+
+            </div>
+            </div>
+            <!-- End of container above -->
+        <!-- Start of container below -->
+        <div style="height: 500px; width: 500px; background-color: yellow; margin: 5px;">
+            <h2>Dynamic Progress Bar</h2>
+
+            <div
+                class="w3-light-grey"
+                style="height: 24px; width: 50%; background-color: lightgrey"
+            >
+                <div
+                    id="enemyBar"
+                    class="w3-green"
+                    style="height: 24px; width: 0; background-color: green"
+                ></div>
+            </div>
+            <br />
+
+
+        </div>
+        </div>
+        <!-- End of container above -->
+        <button id="battle"class="w3-button w3-green" >
+            Start a Fight!
+        </button>
+
+        <script>
+            const battle = document.querySelector("#battle");
+
+            const playerFrame = () => {
+
+                  playerBar.style.width = playerWidth + "%";
+                  playerBar.textContent = playerWidth;
+                  playerWidth++;
+                  if (playerWidth === 101) playerWidth = 1;
+                  if (enemyWidth === 101) enemyWidth = 1;
+            }
+            const enemyFrame = () => {
+              enemyBar.style.width = enemyWidth + "%";
+              enemyBar.textContent = enemyWidth;
+              enemyWidth++;
+              if (enemyWidth === 101) enemyWidth = 1;
+            }
+
+
+            //let id = setInterval(frame, 10);
+            const playerBar = document.getElementById("playerBar");
+            const enemyBar = document.getElementById("enemyBar");
+            let playerWidth = 5;
+            let enemyWidth = 5;
+            let playerSpeed = 2000;
+            let playerSpeedC = 0;
+            let enemySpeed = 4000;
+            battle.addEventListener("click", () => {console.log("lefu"); setInterval(playerFrame, playerSpeed/100); setInterval(enemyFrame, enemySpeed/100); console.log("lefu");});
+        </script>
+    </body>
+</html>
