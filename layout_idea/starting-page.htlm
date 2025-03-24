@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<title>Jerry IDLE</title>
+</head>
+<body>
+
+<div id="main-view">
+  <div id="skills-menu">
+    <button id="pokus">Shop</button>
+    <button>Bank</button>
+    <button>View Skill Trees</button>
+    <button>Combat Level</button>
+    <button>Attack</button>
+    <button>Strenght</button>
+    <button>Defence</button>
+    <button>Hitpoints</button>
+    <button>Ranged</button>
+    <button>Magic</button>
+    <button>Prayer</button>
+    <button>Slayer</button>
+    <button>Corruption</button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+  </div>
+  <div id="game-view">2</div>
+</div>
+
+</body>
+</html> 
