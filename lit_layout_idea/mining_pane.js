@@ -1,73 +1,39 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from 'lit';
+// Import the new component so the browser knows about it
+import './mining_ore.js';
 
 export class MiningPane extends LitElement {
-render() {
+    static styles = css`
+        :host {
+            display: block; /* Use block or flex for layout */
+            /* Your previous float: left and max-width styling was on the inner div.
+               Let's apply layout to the host or a container div here. */
+             max-width: 550px; /* Example: enough space for 3 panes side-by-side + gaps */
+             margin: 20px auto; /* Center the group */
+        }
 
-  return html`
-<div style="display: flex; flex-wrap: wrap; border: 1px solid #000; max-width: 170px; float: left">
-    <!-- Image: takes full width up to max-width of 130px -->
-    <h1>Coal ore</h1>
-    <img src="coal_ore.png" style="padding: 10px; border: 1px solid #ccc; width: 100%; max-width: 130px;">
-    
-    <!-- Container for the bottom divs -->
-    <div style="display: flex; flex-wrap: wrap; width: 100%; gap: 10px;">
+        .panes-container {
+            display: flex; /* Use flexbox to arrange the ore panes */
+            flex-wrap: wrap; /* Allow panes to wrap if the container is too narrow */
+            gap: 10px; /* Gap between the mining-ore components */
+            border: 1px solid #000; /* Border around the whole group */
+            padding: 10px; /* Padding inside the group border */
+        }
 
-        <div
-                        id="miningBarPlaceHolder"
-                        class="w3-green"
-                        style="height: 24px; width: 170px; background-color: transparent"
-                    ><div
-                        id="miningBar"
-                        class="w3-green"
-                        style="height: 24px; width: 50px; background-color: red"
-                    ></div></div>
+        /* Remove individual pane styling from here, it's in mining-ore.js */
+        /* .mining-pane { ... } */
+    `;
 
-        <!-- Four divs below the image -->
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000; "></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-
-    </div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; border: 1px solid #000; max-width: 170px; float: left">
-    <!-- Image: takes full width up to max-width of 130px -->
-    <h1>Iron ore</h1>
-    <img src="iron_ore.jpg" style="padding: 10px; border: 1px solid #ccc; width: 100%; max-width: 130px;">
-    
-    <!-- Container for the bottom divs -->
-    <div style="display: flex; flex-wrap: wrap; width: 100%; gap: 10px;">
-
-        <!-- Four divs below the image -->
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-
-    </div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; border: 1px solid #000; max-width: 170px; float: left">
-    <!-- Image: takes full width up to max-width of 130px -->
-    <h1>Copper ore</h1>
-    <img src="copper_ore.jpg" style="padding: 10px; border: 1px solid #ccc; width: 100%; max-width: 130px;">
-    
-    <!-- Container for the bottom divs -->
-    <div style="display: flex; flex-wrap: wrap; width: 100%; gap: 10px;">
-
-        <!-- Four divs below the image -->
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-        <div style="width: 50px; height: 50px; background-color: #4CAF50; border: 2px solid #000;"></div>
-
-    </div>
-</div>
-
-  `;
-
-}
+    render() {
+        return html`
+            <div class="panes-container">
+                <mining-ore oreName="Coal ore" imageSrc="coal_ore.png"></mining-ore>
+                <mining-ore oreName="Iron ore" imageSrc="iron_ore.jpg"></mining-ore>
+                <mining-ore oreName="Copper ore" imageSrc="copper_ore.jpg"></mining-ore>
+                </div>
+        `;
+    }
 }
 
+// Define the custom element
 customElements.define('mining-pane', MiningPane);
